@@ -1,3 +1,20 @@
+/*
+    Script: Conway's Game of Life using Canvas and native JS
+    Author: Abhinav Rastogi
+    Date: Feb 22, 2013
+
+    Sample Usage:
+
+    var GoL = gameOfLife(10,50);
+	GoL.init();
+
+	var btnStart = document.getElementById("btnStart");
+	btnStart.onclick = GoL.startAnimation;
+
+	var btnPause = document.getElementById("btnPause");
+	btnPause.onclick = GoL.stopAnimation;
+*/
+
 var gameOfLife = function(gridSize, interval) {
 	var canvas, context, rows, cols, board = new Array(), ticker, changeInSystem;
 
@@ -8,9 +25,6 @@ var gameOfLife = function(gridSize, interval) {
 		canvas.height = (window.innerHeight || html.clientHeight) - 20;
         canvas.width = window.innerWidth || html.clientWidth;
         var canvasStyle = canvas.style;
-        //canvasStyle.position = 'fixed';
-        //canvasStyle.top = 0;
-        //canvasStyle.left = 0;
         body = document.getElementsByTagName('body')[0];
     	body.appendChild(canvas);
     	context = context = canvas.getContext('2d');
