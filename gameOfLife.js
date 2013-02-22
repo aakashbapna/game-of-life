@@ -189,10 +189,46 @@ var gameOfLife = function(gridSize, interval) {
 		window.setTimeout(startAnimation, 1000);
 	};
 
+	var clearBoard = function() {
+		for(var i=0; i<board.length; i++) {
+			for(var j=0; j<board[i].length; j++) {
+				board[i][j]=0;
+			}
+		}
+		paintGrid();
+	};
+
+	var getBoard = function () {
+		return board;
+	};
+
+	var writeText = function(str) {
+		if(/^[ a-z]+$/i.test(str)) {
+			clearBoard();
+			var cm = charmap();
+			var x = Math.floor(cols/2) - Math.floor((str.length*6)/2);
+			var y = Math.floor(rows/2) - 4;
+			for(var i=0; i<str.length; i++) {
+				var c = cm.getArrayFor(str.charAt(i));
+				//console.log(c);
+				for(var p=0; p<5; p++) {
+					for(var q=0; q<7; q++) {
+						board[x+p][y+q]=c[p][q];
+					}
+				}
+				x+=6;
+			}
+			paintGrid();
+		}
+	};
+
 	return ({
 		"init": init,
 		"startAnimation": startAnimation,
 		"stopAnimation": stopAnimation,
-		"loadPattern": loadPattern
+		"loadPattern": loadPattern,
+		"getBoard": getBoard,
+		"clearBoard": clearBoard,
+		"writeText": writeText
 	});
 };

@@ -13,10 +13,11 @@
 			left:0;
 		}
 	</style>
+	<script src="charmap.js"></script>
 	<script src="gameOfLife.js"></script>
 	<script type="text/javascript">
 		var setup = function() {
-			var GoL = gameOfLife(10,50);
+			var GoL = gameOfLife(20,50);
 			GoL.init();
 
 			var btnStart = document.getElementById("btnStart");
@@ -27,10 +28,35 @@
 
 			var btnPattern1 = document.getElementById("btnPattern1");
 			btnPattern1.onclick = GoL.loadPattern;
+
+			var btnClear = document.getElementById("btnClear");
+			btnClear.onclick = GoL.clearBoard;
+
+			var btnWriteText = document.getElementById("btnWriteText");
+			btnWriteText.onclick = function() {GoL.writeText(document.getElementById("txtStr").value);};
+
+			/*var btnPattern1 = document.getElementById("btnGenAlpha");
+			var finalstr="{";
+			btnPattern1.onclick = function() {
+				var board = GoL.getBoard();
+				var alpha = document.getElementById('alpha');
+				var result = document.getElementById('result');	
+				var str="";
+				for(var i=0; i<board.length; i++) {
+					for(var j=0; j<board[i].length; j++) {
+						str += board[i][j];
+					}	
+				}
+				finalstr += "'"+alpha.value+"'=>'"+str+"',";
+				result.value=finalstr;
+			};*/
+
+			//console.log(charmap().getArrayFor('c'));
 		}
 	</script>
 </head>
 <body onload="setup();">
-	<input type="button" id="btnPattern1" value="Click to load demo pattern" /> or draw your own pattern and <input type="button" id="btnStart" value="Start" /> <input type="button" id="btnPause" value="Pause" /> 
+	<input type="button" id="btnPattern1" value="Click to load demo pattern" /> or click to draw your own pattern and <input type="button" id="btnStart" value="Start" /> <input type="button" id="btnPause" value="Pause" /> <input type="button" id="btnClear" value="Clear" /> or type in some alphabets: <input type="text" id="txtStr" /> <input type="button" id="btnWriteText" value="Make Pattern" /> and click start.
+	<!--<input type="text" id="alpha" /><input type="button" id="btnGenAlpha" value="Alpha" /><input type="text" id="result" />-->
 </body>
 </html>
