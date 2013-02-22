@@ -2,6 +2,8 @@ A Canvas and JS implementation of the popular Conway's Game of Life.
 
 Click on cells to toggle them. Click on 'Start' to start the simulation. Click on 'Pause' to pause it. Click on 'start' again to resume. You can click during the simulation to interact with it in realtime.
 
+Read more about Game of Life at http://en.wikipedia.org/wiki/Conway's_Game_of_Life
+
 Demo:
 
     http://designcranium.com/projects/game-of-life
