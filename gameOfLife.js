@@ -167,15 +167,32 @@ var gameOfLife = function(gridSize, interval) {
 
 	var startAnimation = function() {
 		ticker = window.setInterval(step, interval);
+		console.log("started");
 	};
 
 	var stopAnimation = function() {
 		window.clearInterval(ticker);
 	};
 
+	var loadPattern = function() {
+		var i = Math.floor(cols/2);
+		var j = Math.floor(rows/2);
+
+		board[i][j] = 1;
+		board[i-1][j] = 1;
+		board[i+1][j] = 1;
+		board[i-1][j-1] = 1;
+		board[i-1][j-2] = 1;
+		board[i+1][j-1] = 1;
+		board[i+1][j-2] = 1;
+		paintGrid();
+		window.setTimeout(startAnimation, 1000);
+	};
+
 	return ({
 		"init": init,
 		"startAnimation": startAnimation,
-		"stopAnimation": stopAnimation
+		"stopAnimation": stopAnimation,
+		"loadPattern": loadPattern
 	});
 };

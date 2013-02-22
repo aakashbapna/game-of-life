@@ -24,10 +24,13 @@
 
 			var btnPause = document.getElementById("btnPause");
 			btnPause.onclick = GoL.stopAnimation;
+
+			var btnPattern1 = document.getElementById("btnPattern1");
+			btnPattern1.onclick = GoL.loadPattern;
 		}
 	</script>
 </head>
 <body onload="setup();">
-	<input type="button" id="btnStart" value="Start" /> <input type="button" id="btnPause" value="Pause" />
+	<input type="button" id="btnPattern1" value="Click to load demo pattern" /> or draw your own pattern and <input type="button" id="btnStart" value="Start" /> <input type="button" id="btnPause" value="Pause" /> 
 </body>
 </html>
