@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Game of Life</title>
+	<style type="text/css">
+		* {
+			margin:0; padding:0;
+		}
+		#canvas {
+			height:100%;
+			width:100%;
+			position:fixed;
+			top:0;
+			left:0;
+		}
+	</style>
+	<script src="gameOfLife.js"></script>
+	<script type="text/javascript">
+		var setup = function() {
+			var GoL = gameOfLife(10,50);
+			GoL.init();
+
+			var btnStart = document.getElementById("btnStart");
+			btnStart.onclick = GoL.startAnimation;
+
+			var btnPause = document.getElementById("btnPause");
+			btnPause.onclick = GoL.stopAnimation;
+		}
+	</script>
+</head>
+<body onload="setup();">
+	<input type="button" id="btnStart" value="Start" /> <input type="button" id="btnPause" value="Pause" />
+</body>
+</html>
